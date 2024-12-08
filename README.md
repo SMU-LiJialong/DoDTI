@@ -1,25 +1,45 @@
 # DoDTI
-The implement of the following paper: "Reliable Deep Diffusion Tensor Estimation: Rethinking the Power of Data-Driven Optimization Routine". 
+The implement of the following paper: "Reliable Deep Diffusion Tensor Estimation: Rethinking the Power of Data-Driven Optimization Routine" [1]. 
 (The manuscript of this project is being reviewed, once accepted we will release all the code)
 
 ## Architecture of the proposed DoDTI
 ![image](https://github.com/user-attachments/assets/9832aa5e-a4db-477c-a04c-6c8d0c05b7ef)  
 Architecture of the proposed DoDTI. (a) The input includes at least six diffusion-encoding volumes plus one non-DW volume, and corresponding gradient directions and b values. The output includes the predicted non-DW volume and six tensor element maps. The n-th iteration of ADMM corresponds to the n-th stage of the deep neural network enclosed within the dashed box, in which the fitting block (X), the auxiliary variable block (Z), and the multiplier block (M) are sequentially updated. (b) The structure of the denoiser, which is embedded within the auxiliary variable block.
 
-## data_negerateor_3D_mix.py
+## HCP data
+The example dataset is provided by the Human Connectome Project [2]. Please acknowledge the source to the WU-Minn-Oxford HCP. The orginal data is available at [https://www.humanconnectome.org/study/hcp-young-adult](https://www.humanconnectome.org/study/hcp-young-adult/).
+The example data was reconstructed using the pipeline mentioned in our paper[1]. 
+The reconstructed DW images are stored in the ./data/nf_unnorm folder (noise-free unnormalized)
+The diffusion tensor field is stored in the ./data/tensor folder, each volume is given by [Dxx Dyy Dzz Dxy Dyz Dxz]
+The mask file is stored in the ./data/mask folder
+The bvalue and bvec files are stroed in the ./data/gradient folder
+
+## data_add_noise_for_train.py
+Normalize and add noise to the noise-free data, as the input for the network.
+
+## data_combine_train_valid.py
 Generate paired data sets for training and validation using noise-free DTI data, noisy DTI data, and diffusion tensor field.
 
-## train_RED_WLLS_3D.py
+## data_add_noise_for_test.py
+Generate simulated noisy data for testing.
+
+## train.py
 Training DoDTI.
 
-## test_exp1_clean.py
-Testing DoDTI.
+## test_for_simulated_data.py
+Testing simulated data. Please do not use this file to process clinical data, as there are important details to be noted.
 
-## net_RED_WLLS_GN_30.py
-The network of DoDTI
+## test_for_clinical_data.py
+Testing clinical data.
 
-## HCP data
-The example data are provided by the Human Connectome Project. Please acknowledge the source to the WU-Minn-Oxford HCP. The orginal data is available at [https://www.humanconnectome.org/study/hcp-young-adult](https://www.humanconnectome.org/study/hcp-young-adult/).
+## net_dodti.py
+The network of DoDTI.
+
+## net_denoiser.py
+The denoising network, which is embedded in DoDTI.
+
+## functions_cal_metric.py, functions_tensor_eigen.py function_wlls_3D.py
+Some functions to be called by the newtork.
 
 ## Refereces
 [1] Li, J., Zhang, Z., Chen, Y., Lu, Q., Wu, Y., Liu, X., Feng, Q., Feng, Y. and Zhang, X., 2024. Reliable Deep Diffusion Tensor Estimation: Rethinking the Power of Data-Driven Optimization Routine. arXiv preprint arXiv:2409.02492.  
