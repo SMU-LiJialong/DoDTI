@@ -2,16 +2,17 @@
 The implement of the following paper: "Reliable Deep Diffusion Tensor Estimation: Rethinking the Power of Data-Driven Optimization Routine" [1].   
 
 (The manuscript of this project is being reviewed, once accepted we will release all the code)
-
+<br/><br/>
    
 ## Architecture of the proposed DoDTI
 ![](https://github.com/SMU-LiJialong/DoDTI/blob/main/check/architecture%20of%20the%20proposed%20DoDTI.png)
 Architecture of the proposed DoDTI. (a) The input includes at least six diffusion-encoding volumes plus one non-DW volume, and corresponding gradient directions and b values. The output includes the predicted non-DW volume and six tensor element maps. The n-th iteration of ADMM corresponds to the n-th stage of the deep neural network enclosed within the dashed box, in which the fitting block (X), the auxiliary variable block (Z), and the multiplier block (M) are sequentially updated. (b) The structure of the denoiser, which is embedded within the auxiliary variable block.
-
+<br/><br/>
     
 ## Data generation pipeline
 ![](https://github.com/SMU-LiJialong/DoDTI/blob/main/check/data%20generation%20pipeline.png)
 Please refer to the paper[1] for detailed information on the training data generation process.
+<br/><br/>
 
 ## HCP data
 The example dataset is provided by the Human Connectome Project [2]. Please acknowledge the source to the WU-Minn-Oxford HCP. The orginal data is available at [https://www.humanconnectome.org/study/hcp-young-adult](https://www.humanconnectome.org/study/hcp-young-adult/).
