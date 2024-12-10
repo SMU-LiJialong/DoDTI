@@ -13,6 +13,9 @@ import numpy as np
 import nibabel as nib
 import matplotlib.pyplot as plt
 
+os.makedirs('./data/nf_norm/')
+os.makedirs('./data/rician_norm/')
+
 noise_type = 'rician'
 for i in range(1, 21):   
     # load data
