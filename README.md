@@ -33,7 +33,7 @@ Normalize and add noise to the noise-free data, as the input for the network.
 
 ## data_combine_train_valid.py
 Generate paired data sets for training and validation using noise-free DTI data, noisy DTI data, and diffusion tensor field.
-<br/><br/><br/>
+<br/><br/>
 
 ## data_add_noise_for_test.py
 Generate simulated noisy data for testing.
