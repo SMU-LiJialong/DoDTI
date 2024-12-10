@@ -1,27 +1,29 @@
 # DoDTI
-The implement of the following paper: "Reliable Deep Diffusion Tensor Estimation: Rethinking the Power of Data-Driven Optimization Routine" [1]. 
+The implement of the following paper: "Reliable Deep Diffusion Tensor Estimation: Rethinking the Power of Data-Driven Optimization Routine" [1].   
+
 (The manuscript of this project is being reviewed, once accepted we will release all the code)
 
+   
 ## Architecture of the proposed DoDTI
-![image](https://github.com/user-attachments/assets/9832aa5e-a4db-477c-a04c-6c8d0c05b7ef)  
+![](https://github.com/SMU-LiJialong/DoDTI/blob/main/check/architecture%20of%20the%20proposed%20DoDTI.png)
 Architecture of the proposed DoDTI. (a) The input includes at least six diffusion-encoding volumes plus one non-DW volume, and corresponding gradient directions and b values. The output includes the predicted non-DW volume and six tensor element maps. The n-th iteration of ADMM corresponds to the n-th stage of the deep neural network enclosed within the dashed box, in which the fitting block (X), the auxiliary variable block (Z), and the multiplier block (M) are sequentially updated. (b) The structure of the denoiser, which is embedded within the auxiliary variable block.
 
-   
+    
 ## Data generation pipeline
-
+![](https://github.com/SMU-LiJialong/DoDTI/blob/main/check/data%20generation%20pipeline.png)
 Please refer to the paper[1] for detailed information on the training data generation process.
 
 ## HCP data
 The example dataset is provided by the Human Connectome Project [2]. Please acknowledge the source to the WU-Minn-Oxford HCP. The orginal data is available at [https://www.humanconnectome.org/study/hcp-young-adult](https://www.humanconnectome.org/study/hcp-young-adult/).
 The example data was reconstructed using the pipeline mentioned in our paper[1].  
 
-The reconstructed DW images are stored in the './data/nf_unnorm' folder (noise-free unnormalized).   
+The reconstructed DW images are stored in the './data/nf_unnorm/' folder (noise-free unnormalized).   
 
-The diffusion tensor field is stored in the './data/tensor' folder, each volume is given by [Dxx Dyy Dzz Dxy Dyz Dxz]   
+The diffusion tensor field is stored in the './data/tensor/' folder, each volume is given by [Dxx Dyy Dzz Dxy Dyz Dxz]   
 
-The mask file is stored in the './data/mask' folder.   
+The mask file is stored in the './data/mask/' folder.   
 
-The bvalue and bvec files are stroed in the './data/gradient' folder.   
+The bvalue and bvec files are stroed in the './data/gradient/' folder.   
 <br/><br/>
 
 ## data_add_noise_for_train.py
